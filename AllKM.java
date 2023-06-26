@@ -1551,18 +1551,18 @@ public class AllKM {
 		int numClusters;
 		switch(dataset){
 			case 0:
-				csvFile += "glass.csv";
-				System.out.print("glass");
-				dim = 9;
-				numPts = 214;
-				numClusters = 6;
-				break;
-			case 1:
 				csvFile += "ecoli.csv";
 				System.out.print("ecoli");
 				dim = 7;
 				numPts = 336;
 				numClusters = 8;
+				break;
+			case 1:
+				csvFile += "yeast.csv";
+				System.out.print("yeast");
+				dim = 8;
+				numPts = 1484;
+				numClusters = 10;
 				break;
 			case 2:
 				csvFile += "iris.csv";
@@ -1586,88 +1586,25 @@ public class AllKM {
 				numClusters = 2;
 				break;
 			case 5:
-				csvFile += "yeast.csv";
-				System.out.print("yeast");
-				dim = 8;
-				numPts = 1484;
-				numClusters = 10;
-				break;
-			case 6:
-				csvFile += "sat.csv";
-				System.out.print("sat");
-				dim = 36;
-				numPts = 6435;
+				csvFile += "glass.csv";
+				System.out.print("glass");
+				dim = 9;
+				numPts = 214;
 				numClusters = 6;
 				break;
-			case 7:
-				csvFile += "synthetic(K=30).csv";
-				System.out.print("syn(K=30)");
-				dim = 2;
-				numPts = 600;
-				numClusters = 30;
-				break;
-			case 8:
+			case 6:
 				csvFile += "synthetic(K=15).csv";
 				System.out.print("syn(K=15)");
 				dim = 2;
 				numPts = 600;
 				numClusters = 15;
 				break;
-			case 9:
+			case 7:
 				csvFile += "synthetic(K=20).csv";
 				System.out.print("syn(K=20)");
 				dim = 2;
 				numPts = 600;
 				numClusters = 20;
-				break;
-			case 10:
-				csvFile += "synthetic_control.csv";
-				System.out.print("synCon");
-				dim = 60;
-				numPts = 600;
-				numClusters = 6;
-				break;
-			case 11:
-				csvFile += "mfeat.csv";
-				System.out.print("mfeat");
-				dim = 649;
-				numPts = 2000;
-				numClusters = 10;
-				break;
-			case 12:
-				csvFile += "miceProtein.csv";
-				System.out.print("mice");
-				dim = 68;
-				numPts = 1077;
-				numClusters = 8;
-				break;
-			case 14:
-				csvFile += "sonar.csv";
-				System.out.print("sonar");
-				dim = 60;
-				numPts = 208;
-				numClusters = 2;
-				break;
-			case 15:
-				csvFile += "landCover.csv";
-				System.out.print("land");
-				dim = 147;
-				numPts = 675;
-				numClusters = 9;
-				break;
-			case 16:
-				csvFile += "LSVT_voice_rehabilitation.csv";
-				System.out.print("voice");
-				dim = 309;
-				numPts = 126;
-				numClusters = 2;
-				break;
-			case 17:
-				csvFile += "seeds_dataset.csv";
-				System.out.print("seeds");
-				dim = 7;
-				numPts = 210;
-				numClusters = 3;
 				break;
 			default:
 				return;
@@ -1752,10 +1689,10 @@ public class AllKM {
 		if(algorithm != 5){
 			System.out.println("Results:");
 
-			for(i = 0; i < t; i++){
+			/*for(i = 0; i < t; i++){
 				System.out.println(times[i]);
 			}
-			System.out.println();
+			System.out.println();*/
 
 			for(i = 0; i < t; i++){
 				System.out.println(NMI(trueCluster,points,extractCenters(allCenters[i])));//System.out.println(KMPerf(points,allCenters[i]));
@@ -1771,12 +1708,15 @@ public class AllKM {
 	}
 
 	public static void main(String[] args){
-		for(int dataset = 0; dataset < 16; dataset++){
-			if(dataset != 2)
-				continue;//just test 1 dataset for demo
+		//Reduced # iterations and datasets for demo
+		for(int dataset = 0; dataset < 7; dataset++){
+			if(dataset != 0 && dataset != 6){
+				//demo one real and one synthetic dataset
+				continue;
+			}
 			for(int alg = 0; alg <= 4; alg++){
 				System.out.println("------------------------------------------------------------------------------");
-				runner(dataset,alg,20);
+				runner(dataset,alg,10);
 			}
 			System.out.println("********************************************************************************");
 		}

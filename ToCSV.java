@@ -16,8 +16,8 @@ public class ToCSV {
 			sb[i] = new StringBuilder();
 		}
 		//Setup info
-		String[] metrics = new String[] {"Time (ms)","NMI","KM Perf"};
-		for(int i = 0; i < 3; i++){
+		String[] metrics = new String[] {"Time (ms)","NMI"};
+		for(int i = 0; i < 2; i++){
 			sb[i*(Integer.parseInt(args[1])+1)+1].append(metrics[i]);
 		}
 		File file = new File(name + ".txt");
@@ -25,7 +25,6 @@ public class ToCSV {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String st = br.readLine(), alg, dataset = "";
-			System.out.println(st);
 			while (st != null){
 				if(st.length() > 0 && st.charAt(0) == '-'){
 					//new column entry
