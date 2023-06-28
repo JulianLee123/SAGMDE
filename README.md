@@ -1,6 +1,6 @@
 # Simulated Annealing Clustering
 
-Code base for the paper ["A simulated annealing algorithm with a dual perturbation method for clustering"](https://www.sciencedirect.com/science/article/abs/pii/S0031320320305161#preview-section-cited-by) authored by Julian Lee and David Perkins and published in *Pattern Recognition*, which currently has 24 citations.
+Code base for the paper ["A simulated annealing algorithm with a dual perturbation method for clustering"](https://www.sciencedirect.com/science/article/abs/pii/S0031320320305161#preview-section-cited-by) authored by Julian Lee and Professor David Perkins and published in *Pattern Recognition*, which currently has 24 citations.
 
 Clustering is a powerful form of unsupervised learning in exploratory data analysis that partitions a set of objects into clusters with the goal of maximizing the similarity of objects within each cluster. Use cases include fraud detection and recommender systems. We propose a new SA-based clustering algorithm that uses two perturbation methods to allow for both large and small shifts in solutions, leading to improved cluster quality. 
 
